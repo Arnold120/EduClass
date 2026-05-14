@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E1359188-31F7-4227-955D-9A7A8460C5B8}|WebApi.Modelo\\WebApi.Modelo.csproj|c:\\users\\hp g3\\desktop\\backend de concurso\\educlass\\webapi.modelo\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1359188-31F7-4227-955D-9A7A8460C5B8}|WebApi.Modelo\\WebApi.Modelo.csproj|solutionrelative:webapi.modelo\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B97D2579-1B51-4FE1-9D66-313D30994F77}|WebApi\\WebApi.csproj|c:\\users\\hp g3\\desktop\\backend de concurso\\educlass\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B97D2579-1B51-4FE1-9D66-313D30994F77}|WebApi\\WebApi.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B97D2579-1B51-4FE1-9D66-313D30994F77}|WebApi\\WebApi.csproj|c:\\users\\hp g3\\desktop\\backend de concurso\\educlass\\webapi\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B97D2579-1B51-4FE1-9D66-313D30994F77}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B97D2579-1B51-4FE1-9D66-313D30994F77}|WebApi\\WebApi.csproj|c:\\users\\hp g3\\desktop\\backend de concurso\\educlass\\webapi\\dto\\usuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B97D2579-1B51-4FE1-9D66-313D30994F77}|WebApi\\WebApi.csproj|solutionrelative:webapi\\dto\\usuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382B3FEC-C15E-4702-A23E-AA0E2023F93C}|Services\\WebApi.Interfaz\\WebApi.Interfaz.csproj|c:\\users\\hp g3\\desktop\\backend de concurso\\educlass\\services\\webapi.interfaz\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382B3FEC-C15E-4702-A23E-AA0E2023F93C}|Services\\WebApi.Interfaz\\WebApi.Interfaz.csproj|solutionrelative:services\\webapi.interfaz\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F3B00A3-4C3A-413F-A625-94515C79F4A9}|Services\\WebApi.Implementacion\\WebApi.Implementacion.csproj|c:\\users\\hp g3\\desktop\\backend de concurso\\educlass\\services\\webapi.implementacion\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F3B00A3-4C3A-413F-A625-94515C79F4A9}|Services\\WebApi.Implementacion\\WebApi.Implementacion.csproj|solutionrelative:services\\webapi.implementacion\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B97D2579-1B51-4FE1-9D66-313D30994F77}|WebApi\\WebApi.csproj|c:\\users\\hp g3\\desktop\\backend de concurso\\educlass\\webapi\\webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B97D2579-1B51-4FE1-9D66-313D30994F77}|WebApi\\WebApi.csproj|solutionrelative:webapi\\webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F3B00A3-4C3A-413F-A625-94515C79F4A9}|Services\\WebApi.Implementacion\\WebApi.Implementacion.csproj|c:\\users\\hp g3\\desktop\\backend de concurso\\educlass\\services\\webapi.implementacion\\webapi.implementacion.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2F3B00A3-4C3A-413F-A625-94515C79F4A9}|Services\\WebApi.Implementacion\\WebApi.Implementacion.csproj|solutionrelative:services\\webapi.implementacion\\webapi.implementacion.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382B3FEC-C15E-4702-A23E-AA0E2023F93C}|Services\\WebApi.Interfaz\\WebApi.Interfaz.csproj|c:\\users\\hp g3\\desktop\\backend de concurso\\educlass\\services\\webapi.interfaz\\webapi.interfaz.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{382B3FEC-C15E-4702-A23E-AA0E2023F93C}|Services\\WebApi.Interfaz\\WebApi.Interfaz.csproj|solutionrelative:services\\webapi.interfaz\\webapi.interfaz.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B97D2579-1B51-4FE1-9D66-313D30994F77}|WebApi\\WebApi.csproj|c:\\users\\hp g3\\desktop\\backend de concurso\\educlass\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B97D2579-1B51-4FE1-9D66-313D30994F77}|WebApi\\WebApi.csproj|solutionrelative:webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\WebApi\\Program.cs",
+              "RelativeDocumentMoniker": "WebApi\\Program.cs",
+              "ToolTip": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\WebApi\\Program.cs",
+              "RelativeToolTip": "WebApi\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T18:16:24.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UsuarioDto.cs",
+              "DocumentMoniker": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\WebApi\\Dto\\UsuarioDto.cs",
+              "RelativeDocumentMoniker": "WebApi\\Dto\\UsuarioDto.cs",
+              "ToolTip": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\WebApi\\Dto\\UsuarioDto.cs",
+              "RelativeToolTip": "WebApi\\Dto\\UsuarioDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T18:16:06.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\WebApi\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\WebApi\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T18:14:48.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WebApi",
+              "DocumentMoniker": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\WebApi\\WebApi.csproj",
+              "RelativeDocumentMoniker": "WebApi\\WebApi.csproj",
+              "ToolTip": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\WebApi\\WebApi.csproj",
+              "RelativeToolTip": "WebApi\\WebApi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-14T18:05:15.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\WebApi.Modelo\\Usuario.cs",
+              "RelativeDocumentMoniker": "WebApi.Modelo\\Usuario.cs",
+              "ToolTip": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\WebApi.Modelo\\Usuario.cs",
+              "RelativeToolTip": "WebApi.Modelo\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T17:58:51.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UsuarioService.cs",
+              "DocumentMoniker": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\Services\\WebApi.Implementacion\\UsuarioService.cs",
+              "RelativeDocumentMoniker": "Services\\WebApi.Implementacion\\UsuarioService.cs",
+              "ToolTip": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\Services\\WebApi.Implementacion\\UsuarioService.cs",
+              "RelativeToolTip": "Services\\WebApi.Implementacion\\UsuarioService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T18:00:42.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IUsuarioService.cs",
+              "DocumentMoniker": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\Services\\WebApi.Interfaz\\IUsuarioService.cs",
+              "RelativeDocumentMoniker": "Services\\WebApi.Interfaz\\IUsuarioService.cs",
+              "ToolTip": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\Services\\WebApi.Interfaz\\IUsuarioService.cs",
+              "RelativeToolTip": "Services\\WebApi.Interfaz\\IUsuarioService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T18:02:21.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WebApi.Implementacion",
+              "DocumentMoniker": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\Services\\WebApi.Implementacion\\WebApi.Implementacion.csproj",
+              "RelativeDocumentMoniker": "Services\\WebApi.Implementacion\\WebApi.Implementacion.csproj",
+              "ToolTip": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\Services\\WebApi.Implementacion\\WebApi.Implementacion.csproj",
+              "RelativeToolTip": "Services\\WebApi.Implementacion\\WebApi.Implementacion.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-14T18:07:46.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "WebApi.Interfaz",
+              "DocumentMoniker": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\Services\\WebApi.Interfaz\\WebApi.Interfaz.csproj",
+              "RelativeDocumentMoniker": "Services\\WebApi.Interfaz\\WebApi.Interfaz.csproj",
+              "ToolTip": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\Services\\WebApi.Interfaz\\WebApi.Interfaz.csproj",
+              "RelativeToolTip": "Services\\WebApi.Interfaz\\WebApi.Interfaz.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-14T18:02:34.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\WebApi\\appsettings.json",
+              "RelativeDocumentMoniker": "WebApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\HP G3\\Desktop\\Backend de concurso\\EduClass\\WebApi\\appsettings.json",
+              "RelativeToolTip": "WebApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-14T18:05:36.873Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
