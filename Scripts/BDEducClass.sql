@@ -8,6 +8,7 @@ USE BDEduClass
 GO
 
 CREATE TABLE Usuario(
+	IdUsuario INT PRIMARY KEY IDENTITY(1,1),
 	NombreUsuario VARCHAR(100) UNIQUE,
 	Contrasena VARCHAR(100),
 	Salt VARBINARY(64),
@@ -54,7 +55,7 @@ CREATE TABLE Director_Colegio(
 );
 
 CREATE TABLE Grado( 
-    IdGrado INT IDENTITY(1,1) PRIMARY KEY,
+    IdGrado INT  PRIMARY KEY IDENTITY (1,1),
 	NombreSeccion VARCHAR(100),
     Grado NVARCHAR(10) UNIQUE, -- 1ro, 2do, 3ro, 4to, 5to, 6to
 	AnioEscolar INT
