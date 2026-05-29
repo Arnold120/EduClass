@@ -10,7 +10,7 @@ GO
 CREATE TABLE Usuario(
 	IdUsuario INT PRIMARY KEY IDENTITY(1,1),
 	NombreUsuario VARCHAR(100) UNIQUE,
-	Contrasena VARCHAR(100),
+	Contrasena VARCHAR(100), 
 	Salt VARBINARY(64),
 	FechaRegistro DATETIME,
 	Genero VARCHAR(20),
@@ -54,86 +54,113 @@ CREATE TABLE Director_Colegio(
     FOREIGN KEY (IdColegio) REFERENCES Colegio(IdColegio)
 );
 
-CREATE TABLE Grado( 
-    IdGrado INT  PRIMARY KEY IDENTITY (1,1),
+CREATE TABLE Grado(
+    IdGrado INT PRIMARY KEY IDENTITY(1,1),
 	NombreSeccion VARCHAR(100),
-    Grado NVARCHAR(10) UNIQUE, -- 1ro, 2do, 3ro, 4to, 5to, 6to
+    Grado NVARCHAR(10) UNIQUE, -- 7mo, 8vo, 9no, 10mo, 11vo
 	AnioEscolar INT
 );
 
-CREATE TABLE Asignatura( 
-    IdAsignatura INT IDENTITY(1,1) PRIMARY KEY,
-	IdGrado INT,
-    NombreAsignatura NVARCHAR(50),
-	FecahaRegistro DATETIME,
-	FOREIGN KEY (IdGrado) REFERENCES Grado(IdGrado)
+CREATE TABLE Grado_Seccion( -- Tabla nueva para manejar secciones A, B, C y asignar docentes
+    IdGradoSeccion INT PRIMARY KEY IDENTITY(1,1),
+    IdGrado INT,
+    Seccion CHAR(1), -- Campo cambiado para guardar A, B, C, D etc
+    FOREIGN KEY (IdGrado) REFERENCES Grado(IdGrado)
 );
+
+CREATE TABLE PeriodoAcademico( -- Tabla nueva para parciales o es decir semestres ps
+    IdPeriodo INT PRIMARY KEY IDENTITY(1,1),
+    NombrePeriodo VARCHAR(50),
+    FechaInicio DATE,
+    FechaFin DATE,
+    Activo BIT DEFAULT 1
+);
+
+CREATE TABLE Asignatura(
+    IdAsignatura INT IDENTITY(1,1) PRIMARY KEY,
+    NombreAsignatura NVARCHAR(50),
+	FechaRegistro DATETIME,
+	IdPeriodo INT, -- Campo agg para relacionar asignatura con periodo
+	FOREIGN KEY (IdPeriodo) REFERENCES PeriodoAcademico(IdPeriodo)
+);
+
 CREATE TABLE Docente (
     IdDocente INT PRIMARY KEY IDENTITY(1,1),
     IdUsuario INT,
     IdColegio INT,
-	IdGrado INT,
-	IdAsignatura INT,
 	NombreDocente VARCHAR(250),
 	ApellidoDocente VARCHAR(250),
     Especialidad VARCHAR(100),
     FechaRegistro DATE,
     FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario),
-    FOREIGN KEY (IdColegio) REFERENCES Colegio(IdColegio),
-	FOREIGN KEY (IdGrado) REFERENCES Grado(IdGrado),
-	FOREIGN KEY (IdAsignatura ) REFERENCES Asignatura(IdAsignatura)
+    FOREIGN KEY (IdColegio) REFERENCES Colegio(IdColegio)
 );
-
+-- Campos eliminados:
+-- IdGrado
+-- IdAsignatura
+-- porque un docente puede impartir varias materias en varios grados
 
 CREATE TABLE Estudiante (
     IdEstudiante INT PRIMARY KEY IDENTITY(1,1),
-	IdDocente INT,
-	IdGrado INT,
-    IdUsuario INT,
+	IdUsuario INT,
+	IdGradoSeccion INT, -- Campo agg para asignar grado y seccion
 	NombreEstudiante VARCHAR(250),
 	ApellidoEstudiante VARCHAR(250),
     FechaIngreso DATE,
-    Nivel VARCHAR(50) DEFAULT 'Primaria',
+    Nivel VARCHAR(50) DEFAULT 'Secundaria', -- Campo cambiado de Primaria a Secundaria
     FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario),
-	FOREIGN KEY (IdDocente ) REFERENCES Docente(IdDocente),
-	FOREIGN KEY (IdGrado) REFERENCES Grado(IdGrado)
+	FOREIGN KEY (IdGradoSeccion) REFERENCES Grado_Seccion(IdGradoSeccion)
 );
+-- Campos eliminados:
+-- IdDocente
+-- IdGrado
 
 CREATE TABLE Tutor_Estudiante (
     IdTutor INT PRIMARY KEY IDENTITY(1,1),
     IdUsuario INT,
-	IdDocente INT,
     IdEstudiante INT,
 	NombreTutor VARCHAR(250),
 	ApellidoTutor VARCHAR(250),
-    Parentesco VARCHAR(50), -- Padre, Madre, Abuelo, etc
+    Parentesco VARCHAR(50),
     FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario),
-    FOREIGN KEY (IdEstudiante) REFERENCES Estudiante(IdEstudiante),
-	FOREIGN KEY (IdDocente ) REFERENCES Docente(IdDocente),
+    FOREIGN KEY (IdEstudiante) REFERENCES Estudiante(IdEstudiante)
+);
+-- Esta tabla de tutor se puede eliminar dependiendo la documentacion
+-- Campo eliminado:
+-- IdDocente
+
+CREATE TABLE Docente_Asignatura_Grado( -- Tabla nueva para relacionar docente materia y grado
+    IdDocenteAsignaturaGrado INT PRIMARY KEY IDENTITY(1,1),
+    IdDocente INT,
+    IdAsignatura INT,
+    IdGradoSeccion INT,
+    FOREIGN KEY (IdDocente) REFERENCES Docente(IdDocente),
+    FOREIGN KEY (IdAsignatura) REFERENCES Asignatura(IdAsignatura),
+    FOREIGN KEY (IdGradoSeccion) REFERENCES Grado_Seccion(IdGradoSeccion)
 );
 
 CREATE TABLE Actividades (
     IdActividad INT PRIMARY KEY IDENTITY(1,1),
-    IdGrado INT,
-	IdDocente INT,
-	IdAsignatura INT,
-	IdEstudiante INT,
+    IdDocenteAsignaturaGrado INT, -- Campo cambiado para usar relacion docente materia grado
     Titulo VARCHAR(150) NOT NULL,
     Descripcion VARCHAR(300),
     FechaPublicacion DATETIME DEFAULT GETDATE(),
     FechaEntrega DATE,
     PuntosMaximos INT DEFAULT 100,
-    FOREIGN KEY (IdGrado) REFERENCES Grado(IdGrado),
-	FOREIGN KEY (IdDocente ) REFERENCES Docente(IdDocente),
-	FOREIGN KEY (IdAsignatura) REFERENCES Asignatura(IdAsignatura),
-	FOREIGN KEY (IdEstudiante) REFERENCES Estudiante(IdEstudiante),
+    FOREIGN KEY (IdDocenteAsignaturaGrado) REFERENCES Docente_Asignatura_Grado(IdDocenteAsignaturaGrado)
 );
+
+-- Campos eliminados:
+-- IdGrado
+-- IdDocente
+-- IdAsignatura
+-- IdEstudiante
 
 CREATE TABLE Logros (
     IdLogro INT PRIMARY KEY IDENTITY(1,1),
     NombreLogro VARCHAR(100),
     Descripcion VARCHAR(300),
-    PuntosRequeridos INT,
+    PuntosRequeridos INT
 );
 
 CREATE TABLE Logros_Obtenidos (
@@ -165,6 +192,27 @@ CREATE TABLE Puntaje (
     FOREIGN KEY (IdEntrega) REFERENCES Entregas(IdEntrega)
 );
 
+CREATE TABLE Calificaciones( -- Tabla nueva para guardar notas finales
+    IdCalificacion INT PRIMARY KEY IDENTITY(1,1),
+    IdEstudiante INT,
+    IdAsignatura INT,
+    IdPeriodo INT,
+    Nota DECIMAL(10,2),
+    FOREIGN KEY (IdEstudiante) REFERENCES Estudiante(IdEstudiante),
+    FOREIGN KEY (IdAsignatura) REFERENCES Asignatura(IdAsignatura),
+    FOREIGN KEY (IdPeriodo) REFERENCES PeriodoAcademico(IdPeriodo)
+);
+
+-- Esta tabla se puede ocupar para asignar mas que todo en base a los trabajos asignado es decir
+-- si un we no llego entonces no tiene permitido entregar el trabajo (Sujeta a cambios)
+CREATE TABLE Asistencia( -- Tabla nueva para control asistencia estudiantes
+    IdAsistencia INT PRIMARY KEY IDENTITY(1,1),
+    IdEstudiante INT,
+    Fecha DATE,
+    Estado VARCHAR(20), -- Presente, Ausente, Tarde
+    FOREIGN KEY (IdEstudiante) REFERENCES Estudiante(IdEstudiante)
+);
+
 CREATE TABLE Perfil (
     IdPerfil INT PRIMARY KEY IDENTITY(1,1),
     IdUsuario INT,
@@ -184,14 +232,44 @@ CREATE TABLE Mensaje (
     FOREIGN KEY (IdUsuarioReceptor) REFERENCES Usuario(IdUsuario)
 );
 
-CREATE TABLE Mascota (
-    IdMascota INT PRIMARY KEY IDENTITY(1,1),
+-- Tabla ELIMINADA:
+-- Mascota
+-- porque el sistema ahora es para secundaria y no primaria
+
+
+CREATE TABLE Notificaciones( -- Tabla nueva para avisos del sistema
+    IdNotificacion INT PRIMARY KEY IDENTITY(1,1),
+    IdUsuario INT,
+    Titulo VARCHAR(150),
+    Mensaje VARCHAR(300),
+    Fecha DATETIME DEFAULT GETDATE(),
+    Leido BIT DEFAULT 0,
+    FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario)
+);
+
+CREATE TABLE Examenes( -- Tabla nueva para examenes por materia
+    IdExamen INT PRIMARY KEY IDENTITY(1,1),
+    IdDocenteAsignaturaGrado INT,
+    Titulo VARCHAR(150),
+    FechaExamen DATE,
+    Puntos INT,
+    FOREIGN KEY (IdDocenteAsignaturaGrado) REFERENCES Docente_Asignatura_Grado(IdDocenteAsignaturaGrado)
+);
+
+CREATE TABLE Recursos( -- Tabla nueva para subir archivos y material
+    IdRecurso INT PRIMARY KEY IDENTITY(1,1),
+    IdDocenteAsignaturaGrado INT,
+    NombreRecurso VARCHAR(150),
+    Archivo VARCHAR(255),
+    FechaSubida DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (IdDocenteAsignaturaGrado) REFERENCES Docente_Asignatura_Grado(IdDocenteAsignaturaGrado)
+);
+
+CREATE TABLE Disciplina( -- Tabla nueva para reportes disciplinarios
+    IdDisciplina INT PRIMARY KEY IDENTITY(1,1),
     IdEstudiante INT,
-	IdPerfil INT,
-    NombreMascota VARCHAR(100),
-    TipoMascota VARCHAR(50), -- Perro, Gato, Dragón, etc
-    NivelMascota INT DEFAULT 1,
-    Experiencia INT DEFAULT 0,
-    FOREIGN KEY (IdEstudiante) REFERENCES Estudiante(IdEstudiante),
-	FOREIGN KEY (IdPerfil) REFERENCES Perfil(IdPerfil)
+    Descripcion VARCHAR(300),
+    Fecha DATETIME DEFAULT GETDATE(),
+    Estado VARCHAR(50), -- leve, grave, resuelto
+    FOREIGN KEY (IdEstudiante) REFERENCES Estudiante(IdEstudiante)
 );
