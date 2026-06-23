@@ -11,6 +11,7 @@ CREATE TABLE Usuario(
 	IdUsuario INT PRIMARY KEY IDENTITY(1,1),
 	NombreUsuario VARCHAR(100) UNIQUE,
 	Contrasena VARCHAR(100), 
+    Correo VARCHAR(150);
 	Salt VARBINARY(64),
 	FechaRegistro DATETIME,
 	Genero VARCHAR(20),
