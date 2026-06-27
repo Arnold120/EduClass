@@ -12,5 +12,6 @@
         public string? Direccion { get; set; }
         public DateTime UltimaActividad { get; set; } 
         public bool EnSesion { get; set; } = false;
+        public bool Estado { get; set; } = true;
     }
 }
