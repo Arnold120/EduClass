@@ -11,21 +11,22 @@ CREATE TABLE Usuario(
 	IdUsuario INT PRIMARY KEY IDENTITY(1,1),
 	NombreUsuario VARCHAR(100) UNIQUE,
 	Contrasena VARCHAR(100), 
-    Correo VARCHAR(150);
+    Correo VARCHAR(150),
 	Salt VARBINARY(64),
 	FechaRegistro DATETIME,
 	Genero VARCHAR(20),
 	Telefono VARCHAR(20),
     Direccion VARCHAR(200),
 	UltimaActividad DATETIME,
-	EnSesion BIT DEFAULT 0
+	EnSesion BIT DEFAULT 0,
+	Estado BIT DEFAULT 1
 );
 
 CREATE TABLE Roles(
     IdRol INT PRIMARY KEY IDENTITY(1,1),
     NombreRol VARCHAR(100),
 	Descripcion VARCHAR(100),
-	Activo BIT DEFAULT 1,
+	Estado BIT DEFAULT 1,
 	FechaRegistro DATETIME
 );
 
@@ -43,7 +44,8 @@ CREATE TABLE Colegio (
     Direccion VARCHAR(200),
     Telefono VARCHAR(20),
     Correo VARCHAR(150),
-    Logo VARCHAR(255)
+    Logo VARCHAR(255),
+	Estado BIT DEFAULT 1
 );
 
 CREATE TABLE Director_Colegio(
@@ -51,6 +53,7 @@ CREATE TABLE Director_Colegio(
     IdUsuario INT NOT NULL,
     IdColegio INT NOT NULL,
     FechaInicio DATE DEFAULT GETDATE(),
+    Estado BIT DEFAULT 1,
     FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario),
     FOREIGN KEY (IdColegio) REFERENCES Colegio(IdColegio)
 );
@@ -59,13 +62,15 @@ CREATE TABLE Grado(
     IdGrado INT PRIMARY KEY IDENTITY(1,1),
 	NombreSeccion VARCHAR(100),
     Grado NVARCHAR(10) UNIQUE, -- 7mo, 8vo, 9no, 10mo, 11vo
-	AnioEscolar INT
+	AnioEscolar INT,
+	Estado BIT DEFAULT 1
 );
 
 CREATE TABLE Grado_Seccion( -- Tabla nueva para manejar secciones A, B, C y asignar docentes
     IdGradoSeccion INT PRIMARY KEY IDENTITY(1,1),
     IdGrado INT,
     Seccion CHAR(1), -- Campo cambiado para guardar A, B, C, D etc
+    Estado BIT DEFAULT 1,
     FOREIGN KEY (IdGrado) REFERENCES Grado(IdGrado)
 );
 
@@ -74,7 +79,7 @@ CREATE TABLE PeriodoAcademico( -- Tabla nueva para parciales o es decir semestre
     NombrePeriodo VARCHAR(50),
     FechaInicio DATE,
     FechaFin DATE,
-    Activo BIT DEFAULT 1
+    Estado BIT DEFAULT 1
 );
 
 CREATE TABLE Asignatura(
@@ -82,6 +87,7 @@ CREATE TABLE Asignatura(
     NombreAsignatura NVARCHAR(50),
 	FechaRegistro DATETIME,
 	IdPeriodo INT, -- Campo agg para relacionar asignatura con periodo
+	Estado BIT DEFAULT 1,
 	FOREIGN KEY (IdPeriodo) REFERENCES PeriodoAcademico(IdPeriodo)
 );
 
@@ -93,6 +99,7 @@ CREATE TABLE Docente (
 	ApellidoDocente VARCHAR(250),
     Especialidad VARCHAR(100),
     FechaRegistro DATE,
+    Estado BIT DEFAULT 1,
     FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario),
     FOREIGN KEY (IdColegio) REFERENCES Colegio(IdColegio)
 );
@@ -109,6 +116,7 @@ CREATE TABLE Estudiante (
 	ApellidoEstudiante VARCHAR(250),
     FechaIngreso DATE,
     Nivel VARCHAR(50) DEFAULT 'Secundaria', -- Campo cambiado de Primaria a Secundaria
+    Estado BIT DEFAULT 1,
     FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario),
 	FOREIGN KEY (IdGradoSeccion) REFERENCES Grado_Seccion(IdGradoSeccion)
 );
@@ -123,6 +131,7 @@ CREATE TABLE Tutor_Estudiante (
 	NombreTutor VARCHAR(250),
 	ApellidoTutor VARCHAR(250),
     Parentesco VARCHAR(50),
+    Estado BIT DEFAULT 1,
     FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario),
     FOREIGN KEY (IdEstudiante) REFERENCES Estudiante(IdEstudiante)
 );
@@ -135,6 +144,7 @@ CREATE TABLE Docente_Asignatura_Grado( -- Tabla nueva para relacionar docente ma
     IdDocente INT,
     IdAsignatura INT,
     IdGradoSeccion INT,
+    Estado BIT DEFAULT 1,
     FOREIGN KEY (IdDocente) REFERENCES Docente(IdDocente),
     FOREIGN KEY (IdAsignatura) REFERENCES Asignatura(IdAsignatura),
     FOREIGN KEY (IdGradoSeccion) REFERENCES Grado_Seccion(IdGradoSeccion)
@@ -148,6 +158,7 @@ CREATE TABLE Actividades (
     FechaPublicacion DATETIME DEFAULT GETDATE(),
     FechaEntrega DATE,
     PuntosMaximos INT DEFAULT 100,
+    Estado BIT DEFAULT 1,
     FOREIGN KEY (IdDocenteAsignaturaGrado) REFERENCES Docente_Asignatura_Grado(IdDocenteAsignaturaGrado)
 );
 
@@ -161,7 +172,8 @@ CREATE TABLE Logros (
     IdLogro INT PRIMARY KEY IDENTITY(1,1),
     NombreLogro VARCHAR(100),
     Descripcion VARCHAR(300),
-    PuntosRequeridos INT
+    PuntosRequeridos INT,
+    Estado BIT DEFAULT 1
 );
 
 CREATE TABLE Logros_Obtenidos (
@@ -254,6 +266,7 @@ CREATE TABLE Examenes( -- Tabla nueva para examenes por materia
     Titulo VARCHAR(150),
     FechaExamen DATE,
     Puntos INT,
+    Estado BIT DEFAULT 1,
     FOREIGN KEY (IdDocenteAsignaturaGrado) REFERENCES Docente_Asignatura_Grado(IdDocenteAsignaturaGrado)
 );
 
@@ -263,6 +276,7 @@ CREATE TABLE Recursos( -- Tabla nueva para subir archivos y material
     NombreRecurso VARCHAR(150),
     Archivo VARCHAR(255),
     FechaSubida DATETIME DEFAULT GETDATE(),
+    Estado BIT DEFAULT 1,
     FOREIGN KEY (IdDocenteAsignaturaGrado) REFERENCES Docente_Asignatura_Grado(IdDocenteAsignaturaGrado)
 );
 
